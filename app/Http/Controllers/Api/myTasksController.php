@@ -57,7 +57,8 @@ class myTasksController extends Controller
             ]);
         }
         public function Alltask(Request $request){
-            $task = tasks::where('user_id', Auth::user()->id)->orderBy('id','desc','deadline')->get();
+            $task = tasks::where('user_id', Auth::user()->id)->orderBy('id','desc')->get();
+           $task = tasks::where('user_id', Auth::user()->id)->orderBy('id','desc','deadline')->get();
             $user = Auth::user();
            return response()->json([
                 'success' => true,
