@@ -78,7 +78,17 @@ class AuthController extends Controller
 
     return response()->json([
         'success' => true,
-        'photo'=>$photo 
+        'photo'=>$photo ,
+        'user' => Auth::user()
+    ]);
+
+}
+
+public function getUserInfo(Request $request){
+    $user = User::find(Auth::user()->id);
+    return response()->json([
+        'success' => true,
+        'user' => Auth::user()
     ]);
 
 }
